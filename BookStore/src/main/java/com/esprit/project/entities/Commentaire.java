@@ -31,7 +31,7 @@ public class Commentaire {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	@Column(name = "texte")
 	private String texte;

@@ -34,7 +34,7 @@ public class BookAudio {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	@Column(name = "prix")
 	private double prix;
