@@ -64,4 +64,109 @@ public class Client {
 	
 	@OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
 	private List<Rating> rating;
+
+	public Client() {
+	}
+
+	public Client(Long id, int numero, int cin, String nom, String prenom, String mdp, String mail, String adresse, int idFiscale, List<Commentaire> commentaire, List<Rating> rating) {
+		this.id = id;
+		this.numero = numero;
+		this.cin = cin;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.mdp = mdp;
+		this.mail = mail;
+		this.adresse = adresse;
+		this.idFiscale = idFiscale;
+		this.commentaire = commentaire;
+		this.rating = rating;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public int getCin() {
+		return cin;
+	}
+
+	public void setCin(int cin) {
+		this.cin = cin;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public String getMdp() {
+		return mdp;
+	}
+
+	public void setMdp(String mdp) {
+		this.mdp = mdp;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+	public int getIdFiscale() {
+		return idFiscale;
+	}
+
+	public void setIdFiscale(int idFiscale) {
+		this.idFiscale = idFiscale;
+	}
+
+	public List<Commentaire> getCommentaire() {
+		return commentaire;
+	}
+
+	public void setCommentaire(List<Commentaire> commentaire) {
+		this.commentaire = commentaire;
+	}
+
+	public List<Rating> getRating() {
+		return rating;
+	}
+
+	public void setRating(List<Rating> rating) {
+		this.rating = rating;
+	}
 }

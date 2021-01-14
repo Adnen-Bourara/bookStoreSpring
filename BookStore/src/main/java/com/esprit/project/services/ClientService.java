@@ -1,5 +1,7 @@
 package com.esprit.project.services;
 
-public interface ClientService {
+import com.esprit.project.entities.Client;
 
+public interface ClientService {
+    Client save(Client client);
 }

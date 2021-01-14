@@ -1,5 +1,12 @@
 package com.esprit.project.repositories;
 
-public interface CDRepository {
+import com.esprit.project.entities.CD;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+@Repository
+public interface CDRepository extends JpaRepository<CD,Long> {
+
+    CD findByTitre(String titre);
 }
