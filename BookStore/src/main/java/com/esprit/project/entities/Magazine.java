@@ -1,6 +1,5 @@
 package com.esprit.project.entities;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
