@@ -7,16 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 @Service
 public class CDServiceImpl implements CDService {
 
+final CDRepository cdrep;
     @Autowired
-    private CDRepository cdrep;
-
+    public CDServiceImpl(CDRepository cdrep){
+        this.cdrep=cdrep;
+    }
     @Override
     public List<CD> findAll() {
-        return (List<CD>) cdrep.findAll();
+        return cdrep.findAll();
     }
 
     @Override
@@ -25,9 +26,13 @@ public class CDServiceImpl implements CDService {
     }
 
     @Override
-    public CD findByTitre(String titre) {
+    public Object findByTitre(String titre) {
         return cdrep.findByTitre(titre);
     }
 
 
+  /*  @Override
+    public CD findByTitre(String titre) {
+         return  cdrep.findByTitre(titre).orElse(null);
+    }*/
 }
