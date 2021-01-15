@@ -1,5 +1,12 @@
 package com.esprit.project.services;
 
-public interface MagazineService {
+import com.esprit.project.entities.Magazine;
 
+import java.util.List;
+
+public interface MagazineService {
+    List<Magazine> getAllMagazine();
+    Magazine getById(Long id);
+    List<Magazine> getListMagazineByAuteurId(Long id);
+    List<Magazine> getListMagazineByEditionId(Long id);
 }

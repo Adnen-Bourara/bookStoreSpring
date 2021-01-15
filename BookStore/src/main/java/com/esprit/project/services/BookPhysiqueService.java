@@ -11,4 +11,5 @@ public interface BookPhysiqueService {
 	List<BookPhysique> getListBookPhysiqueByAuteurId(Long id);
 	List<BookPhysique> getListBookPhysiqueByCategorieId(Long id);
 
+
 }
