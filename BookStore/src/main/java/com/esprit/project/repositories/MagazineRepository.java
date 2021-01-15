@@ -1,5 +1,7 @@
 package com.esprit.project.repositories;
 
-public interface MagazineRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MagazineRepository extends JpaRepository {
 
 }
