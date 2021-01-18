@@ -28,7 +28,7 @@ public class Commande {
 	private Long id;
 	
 	@Column(name = "montant")
-	private double montant;
+	private Double montant;
 	
 	@Column(name = "type")
     private String type;
@@ -40,6 +40,6 @@ public class Commande {
     private String nomClient;
 
 	@Column(name = "nbAchat")
-	private int nbAchat;
+	private Integer nbAchat;
 
 }

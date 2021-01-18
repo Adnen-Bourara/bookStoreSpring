@@ -17,7 +17,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -37,12 +37,15 @@ public class Categorie {
 	@Column(name = "nom")
 	private String nom ;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "categorie", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
 	private List<BookAudio> bookAudio;
-	
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "categorie", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
 	private List<BookNumerique> bookNumerique;
-	
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "categorie", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
 	private List<BookPhysique> bookPhysique;
 }

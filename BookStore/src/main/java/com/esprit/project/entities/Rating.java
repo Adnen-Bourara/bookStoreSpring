@@ -33,7 +33,7 @@ public class Rating {
 	private Long id;
 	
 	@Column(name = "note")
-	private int note;
+	private Integer note;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "clientId")

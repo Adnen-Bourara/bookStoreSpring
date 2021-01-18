@@ -18,10 +18,10 @@ public class Ticket {
     private Long id;
 
     @Column(name = "prix")
-    private double prix;
+    private Double prix;
 
     @Column(name = "description")
-    private double description;
+    private String description;
 
     @Column(name = "imageCouverture")
     private String imageCouverture;

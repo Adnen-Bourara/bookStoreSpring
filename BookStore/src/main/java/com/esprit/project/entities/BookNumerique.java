@@ -35,7 +35,7 @@ public class BookNumerique {
 	private Long id;
 	
 	@Column(name = "prix")
-	private double prix;
+	private Double prix;
 	
 	@Column(name = "statut")
 	private String statut;
@@ -85,10 +85,10 @@ public class BookNumerique {
 	 private String filePath;
 	
 	@Column(name = "nombreDePage")
-	private int nombreDePage;
+	private Integer nombreDePage;
 	
 	@Column(name = "isbn")
-	private int isbn;
+	private Long isbn;
 	
 	@OneToMany(mappedBy = "bookN", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
 	private List<Commentaire> commentaire;

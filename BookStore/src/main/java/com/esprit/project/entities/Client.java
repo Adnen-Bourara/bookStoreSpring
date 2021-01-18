@@ -57,7 +57,7 @@ public class Client {
 	private String adresse;
 
 	@Column(name = "idFiscale")
-	private int idFiscale;
+	private Integer idFiscale;
 	
 	@OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
 	private List<Commentaire> commentaire;

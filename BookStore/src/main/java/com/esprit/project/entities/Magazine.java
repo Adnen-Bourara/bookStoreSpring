@@ -36,7 +36,7 @@ public class Magazine {
 	private Long id;
 	
 	@Column(name = "prix")
-	private double prix;
+	private Double prix;
 	
 	@Column(name = "statut")
 	private String statut;
@@ -45,7 +45,7 @@ public class Magazine {
 	private String langue;
 	
 	@Column(name = "edition")
-	private int edition;
+	private Integer edition;
 	
 	@Column(name = "titre")
 	private String titre;
@@ -64,7 +64,7 @@ public class Magazine {
 	private String sommaire;
 	
 	@Column(name = "quantiteStock")
-	private int quantiteStock;
+	private Integer quantiteStock;
 
 
 	@OneToMany(mappedBy = "magazine", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )

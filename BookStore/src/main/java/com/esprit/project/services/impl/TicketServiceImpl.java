@@ -26,7 +26,7 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public List<Ticket> getListTicketByEvenementId(Long id) {
-        return (List<Ticket>) ticketRepository.findByEvenement_ID(id);
+        return (List<Ticket>) ticketRepository.findByEvenement_Id(id);
     }
 
 }

@@ -90,7 +90,7 @@ public class BookAudio {
 	private String narrateur;
 	    
 	@Column(name = "duree")
-	private int duree;
+	private Integer duree;
 	    
 	@Column(name = "tailleFile")
 	private String tailleFile;

@@ -33,10 +33,10 @@ public class Personnel {
 	
 	
 	@Column(name = "numero")
-	private int numero;
+	private Integer numero;
 	
 	@Column(name = "cin")
-	private int cin;
+	private Long cin;
 	
 	@Column(name = "nom")
 	private String nom;
@@ -57,12 +57,12 @@ public class Personnel {
 	private Date dateSignature;
 	
 	@Column(name = "salaire")
-	private int salaire;
+	private Float salaire;
 	
 	@Column(name = "role")
 	private String role;
 	
 	@Column(name = "soldeConge")
-	private int soldeConge;
+	private Integer soldeConge;
 
 }

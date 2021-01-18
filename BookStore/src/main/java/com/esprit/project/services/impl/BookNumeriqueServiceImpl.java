@@ -21,6 +21,7 @@ public class BookNumeriqueServiceImpl implements BookNumeriqueService {
 
     @Override
     public BookNumerique getById(Long id) {
+
         return bookNumeriqueRepository.findById(id).get();
     }
 

@@ -19,6 +19,7 @@ public class BookPhysiqueServiceImpl implements BookPhysiqueService{
 
 	@Override
 	public List<BookPhysique> getAllBookPhysique() {
+
 		return (List<BookPhysique>) bookPhysiqueRepository.findAll();
 	}
 
@@ -27,7 +28,7 @@ public class BookPhysiqueServiceImpl implements BookPhysiqueService{
 
 		return bookPhysiqueRepository.findById(id).get();
 	}
-	
+
 
 	@Override
 	public List<BookPhysique> getListBookPhysiqueByAuteurId(Long id) {

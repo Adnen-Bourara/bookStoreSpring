@@ -14,6 +14,7 @@ import javax.persistence.Table;
 
 
 import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Data
@@ -38,7 +39,7 @@ public class Auteur {
     private String nationalite;
     
 	@Column(name = "age")
-	private int age;
+	private Integer age;
 	
 	@Column(name = "activites")
 	private String activites;
@@ -55,15 +56,19 @@ public class Auteur {
 	@Column(name = "dateOfdeath")
     private String dateOfdeath;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "auteur", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
 	private List<BookAudio> bookAudio;
-	
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "auteur", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
 	private List<BookNumerique> bookNumerique;
-	
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "auteur", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
 	private List<BookPhysique> bookPhysique;
-	
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "auteur", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
 	private List<Magazine> magazine;
 }

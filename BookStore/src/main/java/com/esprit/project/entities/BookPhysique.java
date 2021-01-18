@@ -1,5 +1,6 @@
 package com.esprit.project.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -19,6 +20,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -28,7 +30,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="BookPhysique")
-public class BookPhysique {
+public class BookPhysique implements Serializable {
 	
 	@Id
 	@Column(name = "id")
@@ -50,11 +52,12 @@ public class BookPhysique {
 	@Column(name = "couverture")
 	private String couverture;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "auteurId")
 	private Auteur auteur;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
+
+
+	@ManyToOne
     @JoinColumn(name = "categorieId")
 	private Categorie categorie ;
 	
@@ -83,17 +86,19 @@ public class BookPhysique {
 	private String sommaire;
 	
 	@Column(name = "isbn")
-	private int isbn;
+	private Long isbn;
 	
 	@Column(name = "nombreDePage")
-	private int nombreDePage;
+	private Integer nombreDePage;
 	
 	@Column(name = "quantiteStock")
-	private int quantiteStock;
+	private Integer quantiteStock;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "bookP", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
 	private List<Commentaire> commentaire;
-	
+
+	@JsonIgnore
 	@OneToMany(mappedBy = "bookP", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
 	private List<Rating> rating;
 }

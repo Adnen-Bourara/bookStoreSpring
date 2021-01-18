@@ -51,10 +51,10 @@ public class CD {
 	private String description;
 	
 	@Column(name = "taille")
-	private int taille;
+	private Integer taille;
 	
 	@Column(name = "quantiteStock")
-	private int quantiteStock;
+	private Integer quantiteStock;
 	
 	
 	@Column(name = "couverture")

@@ -30,13 +30,13 @@ public class Facture {
 	private Long id;
 	
 	@Column(name = "reference")
-	private int reference;
+	private Integer reference;
 	
 	@Column(name = "quantite")
-	private int quantite;
+	private Integer quantite;
 	
 	@Column(name = "montantTotal")
-	private float montantTotal;
+	private Float montantTotal;
 	
 	@Column(name = "createdAt")
 	private Date createdAt;
