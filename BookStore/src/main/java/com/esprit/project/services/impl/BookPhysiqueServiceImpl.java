@@ -40,4 +40,5 @@ public class BookPhysiqueServiceImpl implements BookPhysiqueService{
 		return (List<BookPhysique>) bookPhysiqueRepository.findByCategorie_Id(id);
 	}
 
+
 }

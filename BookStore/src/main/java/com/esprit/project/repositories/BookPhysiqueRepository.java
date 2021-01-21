@@ -13,4 +13,6 @@ public interface BookPhysiqueRepository extends CrudRepository<BookPhysique, Lon
     List <BookPhysique> findByAuteur_Id(Long id);
     List <BookPhysique> findByCategorie_Id(Long id);
 
+
+
 }

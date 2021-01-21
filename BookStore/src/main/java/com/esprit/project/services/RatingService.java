@@ -8,7 +8,7 @@ public interface RatingService {
 
     Rating saveRating(Rating rating);
     Rating modifRating(Rating rating);
-    void deleteRAting(Long id);
+    void deleteRating(Long id);
     Rating findByBookPAndClient(Long idBookP,Long idClient);
     List<Rating> findByBookPId(Long idBookP);
 

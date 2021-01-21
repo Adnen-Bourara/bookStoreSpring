@@ -26,7 +26,7 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public void deleteRAting(Long id) {
+    public void deleteRating(Long id) {
         try {
             ratingRepository.deleteById(id);
         }
@@ -41,11 +41,11 @@ public class RatingServiceImpl implements RatingService {
 
     @Override
     public Rating findByBookPAndClient(Long idBookP, Long idClient) {
-        return ratingRepository.findByBookP_IdAndAndClient_Id(idBookP,idClient);
+        return ratingRepository.findByBookP_IdAndClient_Id(idBookP,idClient);
     }
 
     @Override
     public List<Rating> findByBookPId(Long idBookP) {
-        return (List<Rating>) ratingRepository.findByBookPId(idBookP);
+        return (List<Rating>) ratingRepository.findRatingByBookP_Id(idBookP);
     }
 }

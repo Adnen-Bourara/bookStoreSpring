@@ -8,13 +8,17 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ClientServiceImpl implements ClientService {
-    final ClientRepository clrep;
+
     @Autowired
-    public ClientServiceImpl(ClientRepository clrep){
-        this.clrep=clrep;
-    }
+    public ClientRepository clrep;
+
     @Override
     public Client save(Client client) {
         return clrep.save(client);
+    }
+
+    @Override
+    public Client getById(Long id) {
+        return clrep.findById(id).get();
     }
 }
