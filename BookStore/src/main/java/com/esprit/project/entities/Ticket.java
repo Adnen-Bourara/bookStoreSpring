@@ -1,4 +1,4 @@
-package com.esprit.project.entities;
+	package com.esprit.project.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
