@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -36,10 +37,10 @@ public class Client {
 	
 	
 	@Column(name = "numero")
-	private int numero;
+	private Integer numero;
 	
 	@Column(name = "cin")
-	private int cin;
+	private Integer cin;
 	
 	@Column(name = "nom")
 	private String nom;
@@ -58,10 +59,12 @@ public class Client {
 
 	@Column(name = "idFiscale")
 	private Integer idFiscale;
-	
-	@OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE )
 	private List<Commentaire> commentaire;
-	
-	@OneToMany(mappedBy = "client", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE )
 	private List<Rating> rating;
 }

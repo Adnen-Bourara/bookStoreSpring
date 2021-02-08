@@ -40,12 +40,115 @@ public class RatingServiceImpl implements RatingService {
 }
 
     @Override
-    public Rating findByBookPAndClient(Long idBookP, Long idClient) {
+    public Rating findByBookPandClient(Long idBookP, Long idClient) {
         return ratingRepository.findByBookP_IdAndClient_Id(idBookP,idClient);
     }
 
     @Override
-    public List<Rating> findByBookPId(Long idBookP) {
-        return (List<Rating>) ratingRepository.findRatingByBookP_Id(idBookP);
+    public Rating findByBookAandClient(Long idBookA, Long idClient) {
+        return null;
     }
+
+    @Override
+    public Rating findByBookNandClient(Long idBookN, Long IdClient) {
+        return null;
+    }
+
+    @Override
+    public Rating findByCdandClient(Long idCd, Long idClient) {
+        return null;
+    }
+
+    @Override
+    public Rating findByMagazineandClient(Long idMagazine, Long idClient) {
+        return null;
+    }
+
+    @Override
+    public List<Rating> findByBookPId(Long idBookP,Float minimum) {
+        return (List<Rating>) ratingRepository.findRatingByBookP_IdAndNoteGreaterThanOrderByNoteDesc(idBookP,minimum);
+    }
+
+    @Override
+    public List<Rating> findByBookAId(Long idBookA,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByBookA_IdAndNoteGreaterThanOrderByNoteDesc(idBookA,min);
+    }
+
+    @Override
+    public List<Rating> findByBookNId(Long idBookN,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByBookN_IdAndNoteGreaterThanOrderByNoteDesc(idBookN,min);
+    }
+
+    @Override
+    public List<Rating> findByCDId(Long idCD,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByCd_IdAndNoteGreaterThanOrderByNoteDesc(idCD,min);
+    }
+
+    @Override
+    public List<Rating> findByMagazineId(Long Magazine,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByMagazine_IdAndNoteGreaterThanOrderByNoteDesc(Magazine,min);
+    }
+
+    @Override
+    public List<Rating> findByClientandBookAIsNotNull(Long id,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByClient_IdAndBookAIsNotNullAndNoteGreaterThanOrderByNoteDesc(id,min);
+    }
+
+    @Override
+    public List<Rating> findByClientandBookNIsNotNull(Long id,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByClient_IdAndBookNIsNotNullAndNoteGreaterThanOrderByNoteDesc(id,min);
+    }
+
+    @Override
+    public List<Rating> findByClientandBookPIsNotNull(Long id,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByClient_IdAndBookPIsNotNullAndNoteGreaterThanOrderByNoteDesc(id,min);
+    }
+
+    @Override
+    public List<Rating> findByClientandMagazineIsNotNull(Long id,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByClient_IdAndMagazineIsNotNullAndNoteGreaterThanOrderByNoteDesc(id,min);
+    }
+
+    @Override
+    public List<Rating> findByClientandCDIsNotNull(Long id,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByClient_IdAndCdIsNotNullAndNoteGreaterThanOrderByNoteDesc(id,min);
+    }
+
+    @Override
+    public List<Rating> findByBookAAuteurId(Long id,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByBookA_Auteur_IdAndNoteGreaterThanOrderByNoteDesc(id,min);
+    }
+
+    @Override
+    public List<Rating> findByBookNAuteurId(Long id,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByBookN_Auteur_IdAndNoteGreaterThanOrderByNoteDesc(id,min);
+    }
+
+    @Override
+    public List<Rating> findByBookPAuteurId(Long id,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByBookP_Auteur_IdAndNoteGreaterThanOrderByNoteDesc(id,min);
+    }
+
+    @Override
+    public List<Rating> findByMagazineAuteurId(Long id,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByMagazine_Auteur_IdAndNoteGreaterThanOrderByNoteDesc(id,min);
+    }
+
+    @Override
+    public List<Rating> findByBookACategorieId(Long id,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByBookA_Categorie_IdAndNoteGreaterThanOrderByNoteDesc(id,min);
+    }
+
+    @Override
+    public List<Rating> findByBookNCategorieId(Long id,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByBookN_Categorie_IdAndNoteGreaterThanOrderByNoteDesc(id,min);
+    }
+
+    @Override
+    public List<Rating> findByBookPCategorieId(Long id,Float min) {
+        return (List<Rating>) ratingRepository.findRatingByBookP_Categorie_IdAndNoteGreaterThanOrderByNoteDesc(id,min);
+    }
+
+
+
 }

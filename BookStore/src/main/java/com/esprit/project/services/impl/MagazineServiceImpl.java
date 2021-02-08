@@ -31,7 +31,7 @@ public class MagazineServiceImpl implements MagazineService {
     }
 
     @Override
-    public List<Magazine> getListMagazineByEdition(int edition) {
+    public List<Magazine> getListMagazineByEdition(Integer edition) {
         return (List<Magazine>) magazineRepository.findByEdition(edition);
     }
 

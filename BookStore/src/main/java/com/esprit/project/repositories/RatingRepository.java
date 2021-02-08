@@ -16,29 +16,25 @@ public interface RatingRepository extends CrudRepository<Rating,Long> {
     Rating findByMagazine_IdAndClient_Id(Long idMagazine,Long idClient);
 
 
-    List<Rating> findRatingByBookN_Id(Long id);
-    List<Rating> findRatingByBookA_Id(Long id);
-    List<Rating> findRatingByBookP_Id(Long id);
-    List<Rating> findRatingByCd_Id(Long id);
-    List<Rating> findRatingByMagazine_Id(Long id);
+    List<Rating> findRatingByBookN_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
+    List<Rating> findRatingByBookA_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
+    List<Rating> findRatingByBookP_IdAndNoteGreaterThanOrderByNoteDesc(Long id, Float minimum);
+    List<Rating> findRatingByCd_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
+    List<Rating> findRatingByMagazine_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
 
-    List<Rating> findRatingByClient_IdAndBookAIsNotNull(Long id);
-    List<Rating> findRatingByClient_IdAndBookNIsNotNull(Long id);
-    List<Rating> findRatingByClient_IdAndBookPIsNotNull(Long id);
-    List<Rating> findRatingByClient_IdAndMagazineIsNotNull(Long id);
-    List<Rating> findRatingByClient_IdAndCdIsNotNull(Long id);
+    List<Rating> findRatingByClient_IdAndBookAIsNotNullAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
+    List<Rating> findRatingByClient_IdAndBookNIsNotNullAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
+    List<Rating> findRatingByClient_IdAndBookPIsNotNullAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
+    List<Rating> findRatingByClient_IdAndMagazineIsNotNullAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
+    List<Rating> findRatingByClient_IdAndCdIsNotNullAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
 
-    List<Rating> findRatingByBookA_Auteur_Id(Long id);
-    List<Rating> findRatingByBookN_Auteur_Id(Long id);
-    List<Rating> findRatingByBookP_Auteur_Id(Long id);
-    List<Rating> findRatingByMagazine_Auteur_Id(Long id);
+    List<Rating> findRatingByBookA_Auteur_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
+    List<Rating> findRatingByBookN_Auteur_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
+    List<Rating> findRatingByBookP_Auteur_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
+    List<Rating> findRatingByMagazine_Auteur_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
 
-    List<Rating> findRatingByBookA_Categorie_Id(Long id);
-    List<Rating> findRatingByBookN_Categorie_Id(Long id);
-    List<Rating> findRatingByBookP_Categorie_Id(Long id);
-    List<Rating> findRatingByMagazine_Categorie_Id(Long id);
-
-
-
+    List<Rating> findRatingByBookA_Categorie_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
+    List<Rating> findRatingByBookN_Categorie_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
+    List<Rating> findRatingByBookP_Categorie_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
 
 }

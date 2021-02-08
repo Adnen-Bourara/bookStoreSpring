@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -35,7 +36,7 @@ public class BookNumerique {
 	private Long id;
 	
 	@Column(name = "prix")
-	private Double prix;
+	private  Double prix;
 	
 	@Column(name = "statut")
 	private String statut;
@@ -49,11 +50,11 @@ public class BookNumerique {
 	@Column(name = "couverture")
 	private String couverture;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "auteurId")
 	private Auteur auteur;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "categorieId")
 	private Categorie categorie ;
 	
@@ -89,11 +90,13 @@ public class BookNumerique {
 	
 	@Column(name = "isbn")
 	private Long isbn;
-	
-	@OneToMany(mappedBy = "bookN", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "bookN",cascade = CascadeType.REMOVE )
 	private List<Commentaire> commentaire;
-	
-	@OneToMany(mappedBy = "bookN", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "bookN",cascade = CascadeType.REMOVE )
 	private List<Rating> rating;
 
 }

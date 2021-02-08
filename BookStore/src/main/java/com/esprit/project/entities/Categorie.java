@@ -38,14 +38,14 @@ public class Categorie {
 	private String nom ;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "categorie", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+	@OneToMany(mappedBy = "categorie",cascade = CascadeType.REMOVE )
 	private List<BookAudio> bookAudio;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "categorie", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+	@OneToMany(mappedBy = "categorie",cascade = CascadeType.REMOVE )
 	private List<BookNumerique> bookNumerique;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "categorie", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+	@OneToMany(mappedBy = "categorie",cascade = CascadeType.REMOVE )
 	private List<BookPhysique> bookPhysique;
 }

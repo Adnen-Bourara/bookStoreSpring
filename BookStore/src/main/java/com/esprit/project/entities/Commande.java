@@ -28,7 +28,7 @@ public class Commande {
 	private Long id;
 	
 	@Column(name = "montant")
-	private Double montant;
+	private  Double montant;
 	
 	@Column(name = "type")
     private String type;

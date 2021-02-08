@@ -18,7 +18,7 @@ public class Ticket {
     private Long id;
 
     @Column(name = "prix")
-    private Double prix;
+    private  Double prix;
 
     @Column(name = "description")
     private String description;
@@ -26,7 +26,7 @@ public class Ticket {
     @Column(name = "imageCouverture")
     private String imageCouverture;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "evenement")
     private Evenement evenement ;
 }

@@ -38,7 +38,7 @@ public class BookPhysique implements Serializable {
 	private Long id;
 	
 	@Column(name = "prix")
-	private double prix;
+	private  Double prix;
 	
 	@Column(name = "statut")
 	private String statut;
@@ -95,10 +95,10 @@ public class BookPhysique implements Serializable {
 	private Integer quantiteStock;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "bookP", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+	@OneToMany(mappedBy = "bookP",cascade = CascadeType.REMOVE )
 	private List<Commentaire> commentaire;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "bookP", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+	@OneToMany(mappedBy = "bookP",cascade = CascadeType.REMOVE )
 	private List<Rating> rating;
 }

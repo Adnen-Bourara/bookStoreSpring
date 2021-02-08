@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 public interface MagazineRepository extends CrudRepository<Magazine, Long> {
 
     List <Magazine> findByAuteur_Id(Long id);
-    List <Magazine> findByEdition(int edition);
+    List <Magazine> findByEdition(Integer edition);
 
 }

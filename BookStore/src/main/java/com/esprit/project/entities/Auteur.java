@@ -57,18 +57,18 @@ public class Auteur {
     private String dateOfdeath;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "auteur", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+	@OneToMany(mappedBy = "auteur", cascade = CascadeType.REMOVE )
 	private List<BookAudio> bookAudio;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "auteur", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+	@OneToMany(mappedBy = "auteur", cascade = CascadeType.REMOVE )
 	private List<BookNumerique> bookNumerique;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "auteur", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+	@OneToMany(mappedBy = "auteur" , cascade = CascadeType.REMOVE )
 	private List<BookPhysique> bookPhysique;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "auteur", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+	@OneToMany(mappedBy = "auteur", cascade = CascadeType.REMOVE )
 	private List<Magazine> magazine;
 }

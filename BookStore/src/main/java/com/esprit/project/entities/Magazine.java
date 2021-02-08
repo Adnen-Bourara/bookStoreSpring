@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -36,7 +37,7 @@ public class Magazine {
 	private Long id;
 	
 	@Column(name = "prix")
-	private Double prix;
+	private  Double prix;
 	
 	@Column(name = "statut")
 	private String statut;
@@ -53,7 +54,7 @@ public class Magazine {
 	@Column(name = "nom")
 	private String nom;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "auteurId")
 	private Auteur auteur;
 	
@@ -66,11 +67,12 @@ public class Magazine {
 	@Column(name = "quantiteStock")
 	private Integer quantiteStock;
 
-
-	@OneToMany(mappedBy = "magazine", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+	@JsonIgnore
+	@OneToMany(mappedBy = "magazine", cascade = CascadeType.REMOVE )
 	private List<Commentaire> commentaire;
 
-	@OneToMany(mappedBy = "magazine", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+	@JsonIgnore
+	@OneToMany(mappedBy = "magazine", cascade = CascadeType.REMOVE )
 	private List<Rating> rating;
 
 	

@@ -8,5 +8,5 @@ public interface MagazineService {
     List<Magazine> getAllMagazine();
     Magazine getById(Long id);
     List<Magazine> getListMagazineByAuteurId(Long id);
-    List<Magazine> getListMagazineByEdition(int edition);
+    List<Magazine> getListMagazineByEdition(Integer edition);
 }

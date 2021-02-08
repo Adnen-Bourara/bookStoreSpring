@@ -5,10 +5,13 @@ import com.esprit.project.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 @RestController
 public class RatingController {
@@ -93,6 +96,44 @@ public class RatingController {
         rating =  ratingService.saveRating(rating);
         return ResponseEntity.status(HttpStatus.FOUND).body(rating);
     }
+
+
+
+    @GetMapping("/Client/{idClent}/whatDoILike/{minimum}")
+    public Object whatDoILike(@PathVariable("idClent") Long id,@PathVariable("minimum") Float minimum )
+    {
+        //get the books that the client rated above min
+        List<Rating> booksPhyILoved =  ratingService.findByClientandBookPIsNotNull(id,minimum);
+        List<Long> booksIdILoved = new ArrayList<>();
+        //extract red books
+        for( Rating r: booksPhyILoved)
+            booksIdILoved.add(r.getBookP().getId());
+        List<Rating> whoAlsoLovedMyBooks = new ArrayList<>();
+       for ( Rating r : booksPhyILoved )
+       {
+           //get the ratings given to the books that the client liked
+           List<Rating> allRatingsforLovedBooks = ratingService.findByBookPId(r.getBookP().getId(),minimum);
+           for (Rating r1 : allRatingsforLovedBooks )
+               whoAlsoLovedMyBooks.add(r1);
+       }
+       //only keep new clients and sort
+        whoAlsoLovedMyBooks = whoAlsoLovedMyBooks.stream().filter(elem -> elem.getClient().getId()!= id ).sorted((a,b) -> b.getNote().compareTo(a.getNote())).collect(Collectors.toList());
+
+        List<Rating> booksIMightLike = new ArrayList<>();
+
+        for (Rating r: whoAlsoLovedMyBooks )
+        {
+            //get All the books other client liked
+            List<Rating> booksOtherClientsLiked = ratingService.findByClientandBookPIsNotNull(r.getClient().getId(),minimum);
+            for (Rating r1 :booksOtherClientsLiked )
+                booksIMightLike.add(r1);
+        }
+        //keep only disctinc books the client didn't read
+        TreeSet<Rating> distinctBooks = booksIMightLike.stream().filter(a -> !(booksIdILoved.contains(a.getBookP().getId()))).collect(Collectors.toCollection(()->
+            new TreeSet<Rating>(Comparator.comparing(a -> a.getBookP().getId()))));
+        return ResponseEntity.status(HttpStatus.FOUND).body(distinctBooks);
+    }
+
 
 
 

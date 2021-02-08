@@ -35,31 +35,31 @@ public class Commentaire {
 	
 	@Column(name = "texte")
 	private String texte;
+
+	@Column(name = "createdAt")
+	private Date createdAt;
 	
-	@Column(name = "date")
-	private Date date;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "clientId")
 	private Client client;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "bookAudioId")
 	private BookAudio bookA;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "bookNumeriqueId")
 	private BookNumerique bookN;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "BookPhysiqueId")
 	private BookPhysique bookP;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "CDid")
 	private CD cd;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
     @JoinColumn(name = "MagazineId")
 	private Magazine magazine;
 	

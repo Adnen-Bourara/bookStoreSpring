@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -33,7 +34,7 @@ public class CD {
 	private Long id;
 	
 	@Column(name = "prix")
-	private double prix;
+	private  Double prix;
 	
 	@Column(name = "statut")
 	private String statut;
@@ -62,11 +63,13 @@ public class CD {
 	
 	@Column(name = "reference")
 	private String reference;
-	
-	@OneToMany(mappedBy = "cd", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "cd", cascade = CascadeType.REMOVE )
 	private List<Commentaire> commentaire;
-	    
-	@OneToMany(mappedBy = "cd", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "cd", cascade = CascadeType.REMOVE )
 	private List<Rating> rating;
 
 }
