@@ -1,15 +1,14 @@
 package com.esprit.project.repositories;
 
-import com.esprit.project.entities.Magazine;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
+import com.esprit.project.entities.Magazine;
+
 public interface MagazineRepository extends CrudRepository<Magazine, Long> {
 
     List <Magazine> findByAuteur_Id(Long id);
-    List <Magazine> findByEdition(Integer edition);
+    List <Magazine> findByEdition_Id(Long id);
 
 }

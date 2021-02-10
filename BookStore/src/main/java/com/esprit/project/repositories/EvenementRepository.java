@@ -1,10 +1,9 @@
 package com.esprit.project.repositories;
 
-import com.esprit.project.entities.Evenement;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
+import com.esprit.project.entities.Evenement;
+
 public interface EvenementRepository extends CrudRepository<Evenement, Long> {
 
 }

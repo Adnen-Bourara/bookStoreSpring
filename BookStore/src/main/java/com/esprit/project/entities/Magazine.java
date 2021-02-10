@@ -1,6 +1,5 @@
 package com.esprit.project.entities;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,7 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -37,7 +35,7 @@ public class Magazine {
 	private Long id;
 	
 	@Column(name = "prix")
-	private  Double prix;
+	private double prix;
 	
 	@Column(name = "statut")
 	private String statut;
@@ -46,7 +44,7 @@ public class Magazine {
 	private String langue;
 	
 	@Column(name = "edition")
-	private Integer edition;
+	private int edition;
 	
 	@Column(name = "titre")
 	private String titre;
@@ -54,7 +52,7 @@ public class Magazine {
 	@Column(name = "nom")
 	private String nom;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "auteurId")
 	private Auteur auteur;
 	
@@ -65,14 +63,13 @@ public class Magazine {
 	private String sommaire;
 	
 	@Column(name = "quantiteStock")
-	private Integer quantiteStock;
+	private int quantiteStock;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "magazine", cascade = CascadeType.REMOVE )
+
+	@OneToMany(mappedBy = "magazine", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
 	private List<Commentaire> commentaire;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "magazine", cascade = CascadeType.REMOVE )
+	@OneToMany(mappedBy = "magazine", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE )
 	private List<Rating> rating;
 
 	
