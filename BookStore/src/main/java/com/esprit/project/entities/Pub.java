@@ -37,6 +37,9 @@ public class Pub {
 	@Column(name = "description")
 	private String description;
 	
+	@Column(name = "link")
+	private String link;
+	
 	@ManyToOne
     @JoinColumn(name = "categorieId")
 	private Categorie categorie ;
