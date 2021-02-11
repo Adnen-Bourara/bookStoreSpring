@@ -10,7 +10,7 @@ import java.util.List;
 public interface CommentaireRepository extends CrudRepository<Commentaire,Long> {
 
     List<Commentaire> findByBookN_Id(Long id);
-    List<Commentaire> findByBookA_Id(Long id);
+    List<Commentaire> findBybookA_Id(Long id);
     List<Commentaire> findByBookP_Id(Long id);
     List<Commentaire> findByCd_Id(Long id);
     List<Commentaire> findByMagazine_Id(Long id);

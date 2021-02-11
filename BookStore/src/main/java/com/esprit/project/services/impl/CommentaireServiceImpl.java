@@ -17,8 +17,29 @@ public class CommentaireServiceImpl implements CommentaireService {
 
 
     @Override
-    public List<Commentaire> getByBookPId(Long id) {
+    public List<Commentaire> findByBookP_Id(Long id) {
         return commentaireRepository.findByBookP_Id(id);
+    }
+
+    @Override
+    public List<Commentaire> findByBookN_Id(Long id) {
+        return commentaireRepository.findByBookN_Id(id);
+    }
+
+    @Override
+    public List<Commentaire> findBybookA_Id(Long id) {
+        return commentaireRepository.findBybookA_Id(id);
+    }
+
+
+    @Override
+    public List<Commentaire> findByCd_Id(Long id) {
+        return commentaireRepository.findByCd_Id(id);
+    }
+
+    @Override
+    public List<Commentaire> findByMagazine_Id(Long id) {
+        return commentaireRepository.findByMagazine_Id(id);
     }
 
     @Override
