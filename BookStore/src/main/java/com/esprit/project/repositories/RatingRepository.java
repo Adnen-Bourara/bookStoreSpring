@@ -36,7 +36,7 @@ public interface RatingRepository extends CrudRepository<Rating,Long> {
     List<Rating> findRatingByBookA_Categorie_Id(Long id);
     List<Rating> findRatingByBookN_Categorie_Id(Long id);
     List<Rating> findRatingByBookP_Categorie_Id(Long id);
-    List<Rating> findRatingByMagazine_Categorie_Id(Long id);
+
 
 
 

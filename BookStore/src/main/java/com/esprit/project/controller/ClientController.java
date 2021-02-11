@@ -2,13 +2,21 @@ package com.esprit.project.controller;
 
 import com.esprit.project.entities.Client;
 import com.esprit.project.exceptions.SavingIdException;
+import com.esprit.project.security.TokenProvider;
 import com.esprit.project.services.CDService;
 import com.esprit.project.services.ClientService;
+import com.esprit.project.services.impl.ClientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Optional;
 
 @RestController
@@ -16,6 +24,26 @@ import java.util.Optional;
 public class ClientController {
     @Autowired
     private ClientService clientService;
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private TokenProvider jwtTokenUtil;
+
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ResponseEntity<?> register(@RequestBody HashMap<String, String> login ) throws AuthenticationException {
+
+        final Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        login.get("mail"),
+                        login.get("mdp")
+                )
+        );
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        final String token = jwtTokenUtil.generateToken(authentication);
+        return ResponseEntity.ok(token);
+    }
     @PostMapping("addclient")
     public ResponseEntity<?> save(@RequestBody Client client ){
 

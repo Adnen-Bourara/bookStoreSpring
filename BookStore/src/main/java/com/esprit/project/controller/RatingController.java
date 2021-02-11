@@ -40,7 +40,7 @@ public class RatingController {
     public Object addRatingBookAudio(@RequestBody Rating rating,@PathVariable("idClient") Long idClient, @PathVariable("idBookA") Long idBookA)
     {
         BookAudio ba = bookAudioService.getById(idBookA);
-        Client client = clientService.getById(idClient);
+        Client client = clientService.getByID(idClient);
         rating.setBookA(ba);
         rating.setClient(client);
         rating =  ratingService.saveRating(rating);
@@ -54,7 +54,7 @@ public class RatingController {
     public Object addRatingBookPhysique(@RequestBody Rating rating, @PathVariable("idClient") Long idClient, @PathVariable("idBookP") Long idBookP)
     {
         BookPhysique bp = bookPhysiqueService.getById(idBookP);
-        Client client = clientService.getById(idClient);
+        Client client = clientService.getByID(idClient);
         rating.setBookP(bp);
         rating.setClient(client);
         rating =  ratingService.saveRating(rating);
@@ -65,7 +65,7 @@ public class RatingController {
     public Object addRatingBookNumerique(@RequestBody Rating rating,@PathVariable("idClient") Long idClient, @PathVariable("idBookN") Long idBookN)
     {
         BookNumerique bn = bookNumeriqueService.getById(idBookN);
-        Client client = clientService.getById(idClient);
+        Client client = clientService.getByID(idClient);
         rating.setBookN(bn);
         rating.setClient(client);
         rating =  ratingService.saveRating(rating);
@@ -76,7 +76,7 @@ public class RatingController {
     public Object addRatingCD(@RequestBody Rating rating, @PathVariable("idClient") Long idClient,@PathVariable("idCD")Long idCD)
     {
         CD cd = cdService.findById(idCD);
-        Client client = clientService.getById(idClient);
+        Client client = clientService.getByID(idClient);
         rating.setCd(cd);
         rating.setClient(client);
         rating =  ratingService.saveRating(rating);
@@ -87,7 +87,7 @@ public class RatingController {
     public Object addRatingMagazine(@RequestBody Rating rating, @PathVariable("idClient") Long idClient,@PathVariable("idMagazine")Long idMagazine)
     {
         Magazine magazine = magazineService.getById(idMagazine);
-        Client client = clientService.getById(idClient);
+        Client client = clientService.getByID(idClient);
         rating.setMagazine(magazine);
         rating.setClient(client);
         rating =  ratingService.saveRating(rating);
