@@ -6,8 +6,9 @@ import java.util.List;
 
 public interface BookAudioService {
 
-    BookAudio getById(Long id);
+
     List<BookAudio> getAllBookAudio();
+    BookAudio getById(Long id);
     List<BookAudio> getListBookAudioByAuteurId(Long id);
     List<BookAudio> getListBookAudioByCategorieId(Long id);
 

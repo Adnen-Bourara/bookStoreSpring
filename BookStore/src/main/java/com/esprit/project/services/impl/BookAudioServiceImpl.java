@@ -15,6 +15,7 @@ public class BookAudioServiceImpl implements BookAudioService {
     @Autowired
     private BookAudioRepository bookAudioRepository;
 
+
     @Override
     public BookAudio getById(Long id) {
         return bookAudioRepository.findById(id).get();
@@ -27,11 +28,12 @@ public class BookAudioServiceImpl implements BookAudioService {
 
     @Override
     public List<BookAudio> getListBookAudioByAuteurId(Long id) {
-        return (List<BookAudio>) bookAudioRepository.findByAuteur_Id(id);
+        return  (List<BookAudio>) bookAudioRepository.findByAuteur_Id(id);
     }
 
     @Override
     public List<BookAudio> getListBookAudioByCategorieId(Long id) {
+       // System.out.println(bookAudioRepository.findByCategorie_Id(id).toString());
         return (List<BookAudio>) bookAudioRepository.findByCategorie_Id(id);
     }
 }

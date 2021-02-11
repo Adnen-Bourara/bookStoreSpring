@@ -60,6 +60,9 @@ public class Client {
 	@Column(name = "idFiscale")
 	private Integer idFiscale;
 
+	@Column(name = "isBanned")
+	private Boolean isBanned = false;
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE )
 	private List<Commentaire> commentaire;

@@ -27,11 +27,15 @@ public class BookAudioController {
         BookAudio ba = bookAudioService.getById(id);
         return ResponseEntity.status(HttpStatus.FOUND).body(ba);
     }
+
     @GetMapping("/BookAudio/Auteur/{id}")
-    public Object getByAuteurId(@PathVariable Long id){
-        List<BookAudio> baList = bookAudioService.getListBookAudioByAuteurId(id);
-        return  ResponseEntity.status(HttpStatus.FOUND).body(baList);
+    public Object getByAuteurId(@PathVariable Long id)
+    {
+        List<BookAudio> bookAudioList = bookAudioService.getListBookAudioByAuteurId(id);
+
+        return ResponseEntity.status(HttpStatus.FOUND).body(bookAudioList);
     }
+
     @GetMapping("/BookAudio/Categorie/{id}")
     public Object getByCategorieId(@PathVariable Long id){
         List<BookAudio> baList = bookAudioService.getListBookAudioByCategorieId(id);
