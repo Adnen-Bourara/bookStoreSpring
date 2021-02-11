@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+import java.util.List;
+
 @RestController
 public class CommentaireController {
 
@@ -38,6 +41,7 @@ public class CommentaireController {
         Client client = clientService.getById(idClient);
         comment.setBookA(ba);
         comment.setClient(client);
+        comment.setCreatedAt(new Date());
         comment =  commentaireService.saveCommentaire(comment);
         return ResponseEntity.status(HttpStatus.FOUND).body(comment);
     }
@@ -48,6 +52,7 @@ public class CommentaireController {
         Client client = clientService.getById(idClient);
         comment.setBookP(bp);
         comment.setClient(client);
+        comment.setCreatedAt(new Date());
         comment =  commentaireService.saveCommentaire(comment);
         return ResponseEntity.status(HttpStatus.FOUND).body(comment);
     }
@@ -58,6 +63,7 @@ public class CommentaireController {
         Client client = clientService.getById(idClient);
         comment.setBookN(bn);
         comment.setClient(client);
+        comment.setCreatedAt(new Date());
         comment =  commentaireService.saveCommentaire(comment);
         return ResponseEntity.status(HttpStatus.FOUND).body(comment);
     }
@@ -68,6 +74,7 @@ public class CommentaireController {
         Client client = clientService.getById(idClient);
         comment.setMagazine(magazine);
         comment.setClient(client);
+        comment.setCreatedAt(new Date());
         comment =  commentaireService.saveCommentaire(comment);
         return ResponseEntity.status(HttpStatus.FOUND).body(comment);
     }
@@ -78,9 +85,45 @@ public class CommentaireController {
         Client client = clientService.getById(idClient);
         comment.setCd(cd);
         comment.setClient(client);
+        comment.setCreatedAt(new Date());
         comment =  commentaireService.saveCommentaire(comment);
         return ResponseEntity.status(HttpStatus.FOUND).body(comment);
     }
+    @PutMapping("/Client/{idClient}/updateComment")
+    public  Object updateComment(@RequestBody Commentaire comment, @PathVariable("idClient") Long idClient){
+            comment.setCreatedAt(new Date());
+            comment =  commentaireService.updateCommentaire(comment);
+            return ResponseEntity.accepted().body(comment);
+
+    }
+    @GetMapping("/Client/getBookAComment/{idBookA}")
+    public List<Commentaire> getBookAComments(@PathVariable("idBookA") Long idBook){
+        List<Commentaire> l= commentaireService.findBybookA_Id(idBook);
+        return  l;
+    }
+
+    @GetMapping("/Client/getBookPComment/{idBookP}")
+    public List<Commentaire> getBookPComments(@PathVariable("idBookP") Long idBook){
+        List<Commentaire> l= commentaireService.findByBookP_Id(idBook);
+        return  l;
+    }
+    @GetMapping("/Client/getBookAComment/{idBookN}")
+    public List<Commentaire> getBookNComments(@PathVariable("idBookN") Long idBook){
+        List<Commentaire> l= commentaireService.findByBookN_Id(idBook);
+        return  l;
+    }
+    @GetMapping("/Client/getCdComment/{idBookCD}")
+    public List<Commentaire> getCDs(@PathVariable("idCD") Long idCd){
+        List<Commentaire> l= commentaireService.findByCd_Id(idCd);
+        return  l;
+    }
+    @GetMapping("/Client/getMagazineComment/{idBookM}")
+    public List<Commentaire> getMagazineComments(@PathVariable("idM") Long idM){
+        List<Commentaire> l= commentaireService.findByMagazine_Id(idM);
+        return  l;
+    }
+
+
     @DeleteMapping("/Client/deleteComment/{idComment}")
     public  void deleteComment(@PathVariable("idComment") Long idComment){
         commentaireService.deleteCommentaire(idComment);
