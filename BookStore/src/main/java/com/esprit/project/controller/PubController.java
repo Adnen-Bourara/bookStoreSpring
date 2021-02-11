@@ -102,6 +102,9 @@ public class PubController {
 		}
     	Random rand = new Random();
     	List<Pub> pubList = pubservice.getListPubByCategorieId(maxOcu.getId());
+		if(pubList.isEmpty()) {
+			return null;
+		}
     	Pub randomPub = pubList.get(rand.nextInt(pubList.size()));
 		return ResponseEntity.accepted().body(randomPub);
     	}else {
