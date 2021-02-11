@@ -1,7 +1,9 @@
 package com.esprit.project.controller;
 
+import com.esprit.project.entities.Client;
 import com.esprit.project.entities.Commande;
 import com.esprit.project.entities.Reclamation;
+import com.esprit.project.services.ClientService;
 import com.esprit.project.services.ReclamationService;
 import com.esprit.project.services.impl.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,8 @@ import java.util.Optional;
 public class ReclamationController {
     @Autowired
     ReclamationService reclamationService;
+    @Autowired
+    ClientService clientService;
 
     @Autowired
     EmailService emailService;
@@ -40,10 +44,10 @@ public class ReclamationController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/testMail")
-    public Object testSendiMail()
-    {
-        emailService.sendMail("Dorra.bouzidi@esprit.tn","test mail","hello dorra it's a test");
+    @PostMapping("/testMail/{id}")
+    public Object testSendiMail(@PathVariable Long id)
+    { Client client = clientService.findById(id);
+        emailService.sendMail(client);
         return ResponseEntity.accepted().body("email sent");
     }
 

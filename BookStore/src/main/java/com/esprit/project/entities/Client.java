@@ -27,7 +27,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="Client")
-public class Client {
+public class
+Client {
 	
 	@Id
 	@Column(name = "id")
