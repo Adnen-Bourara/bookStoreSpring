@@ -48,4 +48,8 @@ public class Categorie {
 	@JsonIgnore
 	@OneToMany(mappedBy = "categorie",cascade = CascadeType.REMOVE )
 	private List<BookPhysique> bookPhysique;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "categorie",cascade = CascadeType.REMOVE )
+	private List<Pub> pub;
 }
