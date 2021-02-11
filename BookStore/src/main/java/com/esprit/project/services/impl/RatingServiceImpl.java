@@ -149,6 +149,11 @@ public class RatingServiceImpl implements RatingService {
         return (List<Rating>) ratingRepository.findRatingByBookP_Categorie_IdAndNoteGreaterThanOrderByNoteDesc(id,min);
     }
 
+	@Override
+	public List<Rating> findByClient_Id(Long id,Float min) {
+		return (List<Rating>) ratingRepository.findRatingByClient_IdAndNoteGreaterThanOrderByNoteDesc(id,min);
+	}
+
 
 
 }

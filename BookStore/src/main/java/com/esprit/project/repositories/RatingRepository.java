@@ -36,5 +36,7 @@ public interface RatingRepository extends CrudRepository<Rating,Long> {
     List<Rating> findRatingByBookA_Categorie_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
     List<Rating> findRatingByBookN_Categorie_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
     List<Rating> findRatingByBookP_Categorie_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
+    
+    List<Rating> findRatingByClient_IdAndNoteGreaterThanOrderByNoteDesc(Long id,Float min);
 
 }

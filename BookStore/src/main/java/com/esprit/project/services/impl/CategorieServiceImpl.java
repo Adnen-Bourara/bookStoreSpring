@@ -17,4 +17,10 @@ public class CategorieServiceImpl implements CategorieService {
         public List<Categorie> getAll() {
         return (List<Categorie>) categorieRepository.findAll();
         }
+
+		@Override
+		public Categorie getById(Long id) {
+			
+			return categorieRepository.findById(id).get();
+		}
 }

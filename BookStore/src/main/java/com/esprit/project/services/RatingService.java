@@ -39,7 +39,7 @@ public interface RatingService {
     List<Rating> findByBookNCategorieId(Long id,Float min);
     List<Rating> findByBookPCategorieId(Long id,Float min);
 
-
+    List<Rating> findByClient_Id(Long id,Float min);
 
 
 
