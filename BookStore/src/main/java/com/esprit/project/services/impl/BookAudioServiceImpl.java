@@ -22,6 +22,11 @@ public class BookAudioServiceImpl implements BookAudioService {
     }
 
     @Override
+    public List<BookAudio> findByTitre(String titre) {
+        return bookAudioRepository.findByTitre(titre);
+    }
+
+    @Override
     public List<BookAudio> getAllBookAudio() {
         return (List<BookAudio>) bookAudioRepository.findAll();
     }

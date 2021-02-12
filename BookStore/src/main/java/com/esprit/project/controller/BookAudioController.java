@@ -42,5 +42,11 @@ public class BookAudioController {
         return  ResponseEntity.status(HttpStatus.FOUND).body(baList);
     }
 
+    @GetMapping("/BookAudio/Title/{title}")
+    public Object getByTitle(@PathVariable String title){
+        List<BookAudio> baList = bookAudioService.findByTitre(title);
+        return  ResponseEntity.status(HttpStatus.FOUND).body(baList);
+    }
+
 
 }

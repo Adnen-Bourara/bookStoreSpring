@@ -161,9 +161,9 @@ public class CommentaireController {
         //test of client Id in front !
     }
 
-    public static ArrayList<String> remp() throws FileNotFoundException {
+    public static ArrayList<String> getAllBadWords() throws FileNotFoundException {
 
-        Scanner s = new Scanner(new File("D:\\badWord.txt"));
+        Scanner s = new Scanner(new File("D:\\badWords.txt"));
         ArrayList<String> list = new ArrayList<String>();
         while (s.hasNext()){
             list.add(s.next());
@@ -171,12 +171,12 @@ public class CommentaireController {
         s.close();
         return list;
     }
-    public static String FilterBadWords(String input) throws FileNotFoundException {
-        StringBuilder s = new StringBuilder(input);
-        for (int i = 0; i < input.length(); i++) {
-            for (String word : remp()) {
+    public static String FilterBadWords(String commentTexte) throws FileNotFoundException {
+        StringBuilder s = new StringBuilder(commentTexte);
+        for (int i = 0; i < commentTexte.length(); i++) {
+            for (String word : getAllBadWords()) {
                 try {
-                    if (input.substring(i, word.length()+i).equalsIgnoreCase(word)) {
+                    if (commentTexte.substring(i, word.length()+i).equalsIgnoreCase(word)) {
                        banned =  true;
                         for (int j = i; j < i + word.length(); j++) {
                             s.setCharAt(j, '*');
